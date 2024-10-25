@@ -24,7 +24,7 @@ The **calls** must be implemented with either:
 
 After you have done with the server, you also need to implement all the client programs corresponding to the **calls**.
 
-### Naively Support Concurrent Accesses
+### Naively Supporting Concurrent Accesses
 In reality, you may need to use locks/latches. However, for simplicity (even though not efficient), the server can only handle one client at a time. More specifically, when each client request arrives at the server code, the request will need to try acquire the lock immediately. When there is another incoming request, the incoming request will get rejected instantly (given the lock has been acquired). This means whenever the server is done serving the request, the lock must be released to serve the upcoming requests.
 
 You will need to create the *global lock*. I recommend you to use `std::atomic<bool>` or `std::mutex` to do so, since you will be more familiar with this than the other locking primitives. However, if you use C, you may want to use `mutex`. At the conceptual level, you need to declare a global mutex variable in the server code.
