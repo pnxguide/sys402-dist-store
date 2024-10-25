@@ -2,7 +2,7 @@
 
 The goal of this assessment is to evaluate your understanding on fundamental designs and implementations of distributed file systems or not.
 
-This assessment will let you reconstruct the `hearty-store` and make it distributed. For simplicity, we would like to make it a multiple-client/single-server architecture first. In the upcoming assessment, you will enhance it into the multiple-client/multiple-server setting.
+This assessment will let you reconstruct the `hearty-store` and make it distributed. For simplicity, we would like to make it a multiple-client/single-server system first. In the upcoming assessment, you will enhance it into a multiple-client/multiple-server system.
 
 For this assessment, you do not need to support all the `hearty-store` functionalities.
 
@@ -12,7 +12,7 @@ The server (`hearty-store-server`) will be the long-running process listening to
 Instead of initializing the resource through `hearty-store-init`, you should be able to initialize the resource with the initialization part of the server code. Whenever your `hearty-store-server` is run, you can now proceed to start to listen to the clients' requests.
 
 The server must be able to handle the following **calls** from clients:
-1) `hearty-store-init`: is a command that allows a client to create a store instance on the server machine. (Note: You will need to edit this in Assessment 3 so that you are allowed to create an instance on another server machines.)
+1) `hearty-store-init`: is a command that allows a client to create a store instance on the server machine. (Note: You will need to edit this in Assessment 3 so that you are allowed to create an instance on other server machines.)
 2) `hearty-store-put`: is a command that allows a client to store a file in an instance.
 3) `hearty-store-get`: is a command that allows a client to retrieve a file from an instance.
 4) `hearty-store-list`: is a command that allows a client to list all the available stores.
