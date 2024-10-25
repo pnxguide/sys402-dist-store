@@ -84,7 +84,7 @@ You can see that the following operations consist of multiple steps:
 
 Even though you can ensure internal consistency by using **update ordering**, you will need to do the cleanup process.
 
-Instead, in this assessment, you will need to ensure internal consistency of the **server metadata** by implementing a real atomicity mechanism, *Write-Ahead Logging (WAL)*. You need to ensure that the log must be in the persistent storage (i.e., on disk).
+Instead, in this assessment, you will need to ensure internal consistency of the **server metadata** by implementing a real atomicity mechanism, [*Write-Ahead Logging (WAL)*](https://martinfowler.com/articles/patterns-of-distributed-systems/write-ahead-log.html). You need to ensure that the log must be in the persistent storage (i.e., on disk).
 
 To implement WAL, you need to create a persistent log where you log all the steps you did in the operation in. **Most importantly, you need to log before doing each step.** After your operation ends, you need to commit the log so that you know that the operation is actually end. To commit the log, you just need to append the **COMMIT** message to the log.
 
