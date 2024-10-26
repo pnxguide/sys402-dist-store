@@ -104,7 +104,7 @@ You can see that there will be 2 or 3 steps for doing `hearty-store-put`.
 
 For the first step, you can write the log as `allocate [block_index]`. To verify, you just need to check whether the metadata says whether the `[block_index]` is allocated or not. To revert, you need to set the `[block_index]` to be unallocated.
 
-For the second step, you can write the log as `put file into [block_index] with checksum [checksum]`. You can use [md5](https://docs.openssl.org/master/man3/MD5/) to do checksum. The reason why we do `[checksum]` is to verify. We can verify whether the write has been done by reading the file and matching with the `[checksum]`. To revert, basically, we just need to clear the bytes.
+For the second step, you can write the log as `put file with [checksum] into [block_index] replacing [old_block_data]`. You can use [md5](https://docs.openssl.org/master/man3/MD5/) to do checksum. The reason why we do `[checksum]` is to verify. We can verify whether the write has been done by reading the file and matching with the `[checksum]`. To revert, basically, we just need to replace the block with the [old_data_block].
 
 For the third step, you may write the log as `add entry [id] [block_index] [size] from [old_id] [old_block_index] [old_size]`. To verify, you just need to read the metadata. To revert, you need to use the old data part.
 
